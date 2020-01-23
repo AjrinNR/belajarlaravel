@@ -104,3 +104,39 @@ Route::get('testtni/{nama?}/{bb?}/{umur?}', function($n=null,$b=null,$u=null){
     }
     return $a;
 });
+Route::get('/testmodel',function()
+{
+    $query = App\Post::all();
+    return $query;
+});
+Route::get('/testmodel1',function()
+{
+    $query = App\Post::find(1);
+    return $query;
+});
+Route::get('/testmodel2',function()
+{
+    $query = App\Post::where('title','like','%cepat nikah%')->get();
+    return $query;
+});
+Route::get('/testmodel3',function()
+{
+    $query = App\Post::find(2);
+    $query->title="Contoh Title 2";
+    $query->save();
+    return $query;
+});
+Route::get('/testmodel4',function()
+{
+    $query = App\Post::find(1);
+    $query->delete();
+});
+Route::get('/testmodel5',function()
+{
+    $query = new App\Post;
+    $query->title = "Contoh title 2";
+    $query->content = "saaa";
+    $query->save();
+    return $query;
+});
+
