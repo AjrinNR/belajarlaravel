@@ -1,5 +1,5 @@
 <?php
-
+use App\Moad;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -139,4 +139,25 @@ Route::get('/testmodel5',function()
     $query->save();
     return $query;
 });
-
+Route::get('lihatdata',function()
+{
+    $query = App\Moad::all()->take(3);
+    return $query;
+});
+Route::get('lihatdata1',function(){
+    $query = App\Moad::select('nama','nis','alamat')->first();
+    return $query;
+});
+Route::get('/tambahdata/{nama}/{nis}/{kelas}/{agama}/{jenis_kelamin}/{alamat}/{tgl_lahir}/{umur}' , function($a,$b,$c,$d,$e,$f,$g,$h){
+    $query = new App\Moad;
+    $query->nama=$a;
+    $query->nis=$b;
+    $query->kelas=$c;
+    $query->agama=$d;
+    $query->jenis_kelamin=$e;
+    $query->alamat=$f;
+    $query->tgl_lahir=$g;
+    $query->umur=$h;
+    $query->save();
+    return $query;
+});

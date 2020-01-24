@@ -11,8 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
+        $this->call(Moad::class);
         $this->call(SiswaSeeder::class);
         $this->call(PostsTableSeeder::class);
+
     }
 }
