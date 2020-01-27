@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class Moad extends Seeder
+class MoadSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -24,7 +24,6 @@ class Moad extends Seeder
             ['nama'=>'Ketok', 'nis'=>'189873872', 'kelas'=>'11 RPL','agama'=>'Islam','jenis_kelamin'=>'laki','alamat'=>'Sukamenak','tgl_lahir'=>Carbon::create('1993','07','07'),'umur'=>'27'],
             ['nama'=>'Meseg', 'nis'=>'1893890032', 'kelas'=>'11 RPL','agama'=>'Islam','jenis_kelamin'=>'laki','alamat'=>'Cangkuang','tgl_lahir'=>Carbon::create('1993','07','07'),'umur'=>'27']
         ];
-            // masukkan data ke database
-        DB::table('moads')->insert($moad);
+        DB::table('moad')->insert($moad);
     }
 }
