@@ -104,6 +104,7 @@ Route::get('testtni/{nama?}/{bb?}/{umur?}', function($n=null,$b=null,$u=null){
     }
     return $a;
 });
+
 Route::get('/testmodel',function()
 {
     $query = App\Post::all();
@@ -161,3 +162,12 @@ Route::get('tambahdata/{nama}/{nis}/{kelas}/{agama}/{jenis_kelamin}/{alamat}/{tg
     $query->save();
     return $query;
 });
+// controller
+Route::get('tambah/{angka?}/{angka1?}','LatihanController@tambah');
+Route::get('kurang/{angka?}/{angka1?}','LatihanController@kurang');
+Route::get('bagi/{angka?}/{angka1?}','LatihanController@bagi');
+Route::get('kali/{angka?}/{angka1?}','LatihanController@kali');
+
+Route::get('/data','LatihanController@loop');
+Route::get('/kerja','LatihanController@kerja');
+
