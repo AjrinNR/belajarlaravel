@@ -113,7 +113,7 @@ class LatihanController extends Controller
     public function kerja()
     {
         $data = [
-            ['Nama'=>'hari', 'Agama' => 'Islam', 'Alamat'=>'Marken','jk' => 'Laki', 'Jabatan' => "Manager", 'jamker' => 260],
+            ['Nama'=>'hari', 'Agama' => 'Islam', 'Alamat'=>'Marken','jk' => 'Laki', 'Jabatan' => "Manager", 'jamker' => 270],
             ['Nama'=>'Diana', 'Agama' => 'Kristen', 'Alamat'=>'Sukamenak','jk' => 'Perempuan', 'Jabatan' => "Sekretaris", 'jamker' => 200],
             ['Nama'=>'Jajang', 'Agama' => 'Islam', 'Alamat'=>'Soreang','jk' => 'Laki', 'Jabatan' => "Staff", 'jamker' => 200]
 
@@ -125,17 +125,23 @@ class LatihanController extends Controller
                 $PPN = '2.5%';
                     if ($key['jamker'] >= 250 ) {
                         $bonus = $gb * 10/100;
-                        $gjt = $gb - ($gb*$ppn);
+                        $gjt = $gb - ($gb*$ppn)+$bonus;
                         $j = "Mendapatkan Bonus : ". $bonus;
                         $gt =  $gjt;
                         $bns = '10%';
                     }
                     elseif ($key['jamker']>=200) {
                         $bonus = $gb * 5/100;
-                        $gjt = $gb - ($gb*$ppn);
+                        $gjt = $gb - ($gb*$ppn)+$bonus;
                         $j = "Mendapatkan Bonus : ". $bonus;
                         $gt =  $gjt;
                         $bns = '5%';
+                    }else {
+                        $bonus = 0;
+                        $gjt = $gb- ($gb*$ppn) ;
+                        $j = "Mendapatkan Bonus : ". $bonus;
+                        $gt =  $gjt;
+                        $bns = '0%';
                     }
                 }
             elseif ($key['Jabatan'] == 'Sekretaris') {
@@ -144,17 +150,23 @@ class LatihanController extends Controller
                 $PPN = '2.5%';
                     if ($key['jamker'] >= 250 ) {
                         $bonus = $gb * 10/100;
-                        $gjt = $gb - ($gb*$ppn);
+                        $gjt = $gb - ($gb*$ppn)+$bonus;
                         $j = "Mendapatkan Bonus : ". $bonus;
                         $gt =  $gjt;
                         $bns = '10%';
                     }
                     elseif ($key['jamker']>=200) {
                         $bonus = $gb * 5/100;
-                        $gjt = $gb - ($gb*$ppn);
+                        $gjt = $gb - ($gb*$ppn)+$bonus;
                         $j = "Mendapatkan Bonus : ". $bonus;
                         $gt =  $gjt;
                         $bns = '5%';
+                    }else {
+                        $bonus = 0;
+                        $gjt = $gb- ($gb*$ppn)+$bonus ;
+                        $j = "Mendapatkan Bonus : ". $bonus;
+                        $gt =  $gjt;
+                        $bns = '0%';
                     }
                 }
             elseif ($key['Jabatan'] == 'Staff') {
@@ -163,17 +175,23 @@ class LatihanController extends Controller
                 $PPN = '2.5%';
                     if ($key['jamker'] >= 250 ) {
                         $bonus = $gb * 10/100;
-                        $gjt = $gb - ($gb*$ppn);
+                        $gjt = $gb - ($gb*$ppn) +$bonus;
                         $j = "Mendapatkan Bonus : ". $bonus;
                         $gt =  $gjt;
                         $bns = '10%';
                     }
                     elseif ($key['jamker']>=200) {
                         $bonus = $gb * 5/100;
-                        $gjt = $gb - ($gb*$ppn);
+                        $gjt = $gb - ($gb*$ppn)+$bonus;
                         $j = "Mendapatkan BGaji Total :onus : ". $bonus;
                         $gt =  $gjt;
                         $bns = '5%';
+                    }else {
+                        $bonus = 0;
+                        $gjt = $gb- ($gb*$ppn) +$bonus;
+                        $j = "Mendapatkan Bonus : ". $bonus;
+                        $gt =  $gjt;
+                        $bns = '0%';
                     }
                 }
             echo"Nama : ".$key['Nama']. "<br>".

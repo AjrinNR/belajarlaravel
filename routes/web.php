@@ -171,3 +171,17 @@ Route::get('kali/{angka?}/{angka1?}','LatihanController@kali');
 Route::get('/data','LatihanController@loop');
 Route::get('/kerja','LatihanController@kerja');
 
+//CRUD tabungan
+Route::get('tabungan','TabunganController@index');
+Route::get('/tabungan/{id}','TabunganController@show');
+Route::get('/tambah/{a?}/{b?}/{c?}/{d?}', 'TabunganController@Store');
+Route::get('/edit/{id?}/{a?}/{b?}/{c?}/{d?}', 'TabunganController@Update');
+Route::get('/delete/{id?}', 'TabunganController@Destroy');
+
+// CRUD Customer
+Route::get('customerindex','CustomerController@index');
+Route::get('/customershow/{id}','CustomerController@show');
+Route::get('/customertambah/{a?}/{b?}/{c?}/{d?}/{e?}/{f?}/{g?}', 'CustomerController@store');
+Route::get('/customeredit/{id?}/{a?}/{b?}/{c?}/{d?}/{e?}/{f?}/{g?}', 'CustomerController@edit');
+Route::get('/customerdelete/{id?}', 'CustomerController@destroy');
+
