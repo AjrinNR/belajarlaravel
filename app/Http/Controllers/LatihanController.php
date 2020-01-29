@@ -115,31 +115,78 @@ class LatihanController extends Controller
         $data = [
             ['Nama'=>'hari', 'Agama' => 'Islam', 'Alamat'=>'Marken','jk' => 'Laki', 'Jabatan' => "Manager", 'jamker' => 260],
             ['Nama'=>'Diana', 'Agama' => 'Kristen', 'Alamat'=>'Sukamenak','jk' => 'Perempuan', 'Jabatan' => "Sekretaris", 'jamker' => 200],
-            ['Nama'=>'Jajang', 'Agama' => 'Islam', 'Alamat'=>'Soreang','jk' => 'Laki', 'Jabatan' => "Staff", 'jamker' => 150]
+            ['Nama'=>'Jajang', 'Agama' => 'Islam', 'Alamat'=>'Soreang','jk' => 'Laki', 'Jabatan' => "Staff", 'jamker' => 200]
 
         ];
         foreach ($data as $val =>$key) {
             if ($key['Jabatan'] == 'Manager') {
-                echo"Nama : ".$key['Nama']. "<br>".
-                "Agama : " .$key['Agama']. "<br>".
-                "Alamat : ".$key['Alamat']. "<br>".
-                "Jenis Kelamin : ".$key['jk'] ."<br>".
-                "Jabatan : ".$key['Jabatan'] . "<br>".
-                "Jam Kerja : ". $key['jamker'] . "<br>";
-
-                    if ($key['jamker'] > 250 ) {
-                        $ppn = 0.025;
-                        $gu = 5000000;
-                        $bonus = $gu * 10/100;
-                        $gjt = $gu;
+                $ppn = 0.025;
+                $gb = 5000000;
+                $PPN = '2.5%';
+                    if ($key['jamker'] >= 250 ) {
+                        $bonus = $gb * 10/100;
+                        $gjt = $gb - ($gb*$ppn);
                         $j = "Mendapatkan Bonus : ". $bonus;
-                        $gt = "";
-                    }elseif ($key['jamker']>200) {
-                        $gu = 5000000;
-                        $bonus = $gu * 5/100;
-                        $j = "Mendapatkan Bonus : ". $bonus;
+                        $gt =  $gjt;
+                        $bns = '10%';
                     }
-            }
+                    elseif ($key['jamker']>=200) {
+                        $bonus = $gb * 5/100;
+                        $gjt = $gb - ($gb*$ppn);
+                        $j = "Mendapatkan Bonus : ". $bonus;
+                        $gt =  $gjt;
+                        $bns = '5%';
+                    }
+                }
+            elseif ($key['Jabatan'] == 'Sekretaris') {
+                $ppn = 0.025;
+                $gb = 3500000;
+                $PPN = '2.5%';
+                    if ($key['jamker'] >= 250 ) {
+                        $bonus = $gb * 10/100;
+                        $gjt = $gb - ($gb*$ppn);
+                        $j = "Mendapatkan Bonus : ". $bonus;
+                        $gt =  $gjt;
+                        $bns = '10%';
+                    }
+                    elseif ($key['jamker']>=200) {
+                        $bonus = $gb * 5/100;
+                        $gjt = $gb - ($gb*$ppn);
+                        $j = "Mendapatkan Bonus : ". $bonus;
+                        $gt =  $gjt;
+                        $bns = '5%';
+                    }
+                }
+            elseif ($key['Jabatan'] == 'Staff') {
+                $ppn = 0.025;
+                $gb = 2500000;
+                $PPN = '2.5%';
+                    if ($key['jamker'] >= 250 ) {
+                        $bonus = $gb * 10/100;
+                        $gjt = $gb - ($gb*$ppn);
+                        $j = "Mendapatkan Bonus : ". $bonus;
+                        $gt =  $gjt;
+                        $bns = '10%';
+                    }
+                    elseif ($key['jamker']>=200) {
+                        $bonus = $gb * 5/100;
+                        $gjt = $gb - ($gb*$ppn);
+                        $j = "Mendapatkan BGaji Total :onus : ". $bonus;
+                        $gt =  $gjt;
+                        $bns = '5%';
+                    }
+                }
+            echo"Nama : ".$key['Nama']. "<br>".
+            "Agama : " .$key['Agama']. "<br>".
+            "Alamat : ".$key['Alamat']. "<br>".
+            "Jenis Kelamin : ".$key['jk'] ."<br>".
+            "Jabatan : ".$key['Jabatan'] . "<br>".
+            "Jam Kerja : ". $key['jamker'] . "<br>".
+            "Gaji Bersih : Rp. ".number_format($gb,2,',','.'). "<br>".
+            "Bonus : ". $bns . "<br>".
+            "PPN : ". $PPN . "<br>".
+            "Gaji Bonus : Rp. ".number_format($bonus,2,',','.'). "<br>".
+            "Gaji Total : Rp. ".number_format($gt,2,',','.') . "<hr>    ";
         }
     }
 }
