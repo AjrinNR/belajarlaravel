@@ -185,3 +185,8 @@ Route::get('/customertambah/{a?}/{b?}/{c?}/{d?}/{e?}/{f?}/{g?}', 'CustomerContro
 Route::get('/customeredit/{id?}/{a?}/{b?}/{c?}/{d?}/{e?}/{f?}/{g?}', 'CustomerController@edit');
 Route::get('/customerdelete/{id?}', 'CustomerController@destroy');
 
+//passing
+Route::get('pass','PracticeController@pass');
+Route::get('siswa','PracticeController@pass1');
+Route::get('tabs','PracticeController@pass2');
+
