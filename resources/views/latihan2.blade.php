@@ -7,12 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    Daftar Tabungan
+    Daftar Tabungan<br>
     @foreach ($tabungan as $item)
         Nama : {{$item -> nama}}<br>
         Nis : {{$item -> nis}}<br>
         Kelas : {{$item -> kelas}}<br>
-        Jml : {{$item -> jml}}<hr>
+        Jml : {{$item -> jml}}<br>
+
+
+    @if ( $item -> jml >=50000)
+        {{$paket = 'Paket A'}}
+    @elseif ($item -> jml >= 10001 AND $item -> jml <=50000)
+        {{$paket = ' Paket B'}}
+    @elseif($item -> jml >= 1 AND $item -> jml <=10000)
+        {{$paket = ' Paket C'}}
+    @endif
+        <hr>
     @endforeach
 </body>
 </html>

@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         factory(App\Tabungan::class, 100)->create();
-        factory(App\Customer::class, 1000)->create();
+        factory(App\Customer::class, 100)->create();
+        factory(App\Form::class, 10)->create();
 
     }
 }

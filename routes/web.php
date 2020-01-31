@@ -188,5 +188,8 @@ Route::get('/customerdelete/{id?}', 'CustomerController@destroy');
 //passing
 Route::get('pass','PracticeController@pass');
 Route::get('siswa','PracticeController@pass1');
-Route::get('tabs','PracticeController@pass2');
+Route::get('tabs/{id}','PracticeController@pass2');
+
+Route::get('met1','FormController@met1');
+Route::get('met2/{id}','FormController@met2');
 
